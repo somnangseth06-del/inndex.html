@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Javascript</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: black; 
+        }
+        
+   
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: blue; 
+            padding-bottom: 5px;
+            border-bottom: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .patterns-grid {
+            display: flex; 
+            justify-content: space-around; 
+            width: 100%;
+        }
+
+        
+        .pattern-column {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; 
+        }
+        
+       
+        .pattern-output {
+            font-family: monospace;
+            white-space: pre; 
+            font-size: 1.1em;
+           
+            color: black;
+        }
+        
+        
+        #pattern3, #pattern4 {
+            color: red; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">PATTERNS USING NESTED LOOP</div>
+
+    <div class="patterns-grid">
+        <div class="pattern-column">
+            <pre id="pattern1" class="pattern-output"></pre>
+            
+            <pre id="pattern3" class="pattern-output"></pre>
+        </div>
+
+        <div class="pattern-column">
+             <pre id="pattern2" class="pattern-output"></pre>
+
+            <pre id="pattern4" class="pattern-output"></pre>
+        </div>
+    </div>
+
+    <script>
+        const N = 5; 
+
+        function displayAllPatterns() {
+            let output1 = '', output2 = '', output3 = '', output4 = '';
+
+            for (let i = 1; i <= N; i++) {
+               
+                let row1 = '';
+                for (let j = 1; j <= i; j++) {
+                    row1 += '*';
+                }
+                output1 += row1 + '\n';
+                
+                
+                let row3 = '';
+                for (let j = 1; j <= i; j++) {
+                    row3 += j;
+                }
+                output3 += row3 + '\n';
+                
+               
+                
+                
+                let row2 = '';
+                
+                for (let j = 1; j <= (N - i + 1); j++) {
+                    row2 += '*';
+                }
+                output2 += row2 + '\n';
+
+              
+                let row4 = '';
+           
+                for (let j = i; j <= N; j++) {
+                    row4 += j;
+                }
+                output4 += row4 + '\n';
+            }
+
+            document.getElementById('pattern1').textContent = output1;
+            document.getElementById('pattern2').textContent = output2;
+            document.getElementById('pattern3').textContent = output3;
+            document.getElementById('pattern4').textContent = output4;
+        }
+
+        displayAllPatterns();
+    </script>
+
+</body>
+</html>
